@@ -2,7 +2,7 @@
  <img src="./frontend/public/cover.png" title="Base App">
 </a>
 
-# PNPM Monorepo, NestJS, TypeScript, Recoil, React Router 6, MUI v5, - My Transactions
+# PNPM Monorepo, NestJS, TypeScript, Recoil, React Router 6, MUI v5 - My Transactions
 
 ## Features
 
@@ -30,11 +30,11 @@
 
 #### CRA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). I prefer Vite but suggested was CRA
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 #### React
 
-The latest version (v18) is used here. All dependencies support [React](https://reactjs.org/) v18 and the `v2` is refactored according to the latest changes and requirements of `React` v18.
+The latest version (v18) is used here. All dependencies support [React](https://reactjs.org/) v18.
 
 #### TypeScript
 
@@ -148,13 +148,13 @@ I put TODO comments in the code where I believe there is a bug that needs to be 
 
 [PR-3](#) Remove inline CSS into a theme
 
-[PR-4](#) Add dark theme like I used [here](#https://github.com/cosmology/mui-v5-theme-switcher)
+[PR-4](#) Add dark theme like I used [here](https://github.com/cosmology/mui-v5-theme-switcher)
 
 [PR-5](#) Add a create route to backend.
 
 [PR-6](#) Create a add transaction form.
 
-[PR-7](#) Apply hybrid validation from front and back like used [here](#https://github.com/cosmology/vite-monorepo-front-back-validation-ts-mui-v5)
+[PR-7](#) Apply hybrid validation from front and back like used [here](https://github.com/cosmology/vite-monorepo-front-back-validation-ts-mui-v5)
 
 # Dev tools
 
