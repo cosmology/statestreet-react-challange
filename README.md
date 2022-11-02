@@ -91,9 +91,11 @@ brew install pnpm
 
 Add .env
 
+```
 REACT_APP_CLIENT_PORT=3000
 REACT_APP_SERVER_PORT=5000
 REACT_APP_HOST=http://localhost
+```
 
 Install dependencies:
 
