@@ -1,0 +1,18 @@
+### List all transactions
+
+GET http://localhost:5000/transactions
+
+### Get a particular transaction
+GET http://localhost:5000/transactions/67442173
+
+###
+GET http://localhost:3000/transactions/85225264
+
+# ### Create a new transaction
+# POST http://localhost:3000/transactions
+# Content-Type: application/json
+
+
+# {
+#   "content": "testing"
+# }
