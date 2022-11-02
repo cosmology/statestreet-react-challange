@@ -89,7 +89,13 @@ If you have the package manager installed, you can install pnpm using the follow
 brew install pnpm
 ```
 
-Add .env
+Add .env in /frontend
+
+```
+cd frontend
+```
+
+paste
 
 ```
 REACT_APP_CLIENT_PORT=3000
