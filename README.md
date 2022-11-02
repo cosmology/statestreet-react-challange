@@ -1,5 +1,5 @@
 <a href="http://www.digitalwebart.net/" target="_blank" rel="noreferrer">
- <img src="./public/cover.png" title="Base App">
+ <img src="./frontend/public/cover.png" title="Base App">
 </a>
 
 # PNPM Monorepo, NestJS, TypeScript, Recoil, React Router 6, MUI v5, - My Transactions
