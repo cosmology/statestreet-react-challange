@@ -2,7 +2,7 @@
  <img src="./public/cover.png" title="Base App">
 </a>
 
-# PNPM Monorepo, NestJS, TypeScript, Recoil, React Router 6, MUI v5, - Front Back Validation
+# PNPM Monorepo, NestJS, TypeScript, Recoil, React Router 6, MUI v5, - My Transactions
 
 ## Features
 
