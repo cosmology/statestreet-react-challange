@@ -26,7 +26,6 @@ export default function TransactionList() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(ROWS_PER_PAGE);
 
-  // TODO: fix React state update on a component that hasn't mounted yet
   const filteredTrans = useRecoilValue(filteredTransactions);
 
   useEffect(() => {
