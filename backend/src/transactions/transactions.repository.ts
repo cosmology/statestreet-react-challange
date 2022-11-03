@@ -4,12 +4,12 @@ import { readFile, writeFile } from 'fs/promises';
 @Injectable()
 export class TransactionsRepository {
   async findOne(id: string) {
-    const contents = await readFile('./data/data.json', 'utf8');
+    const contents = await readFile('../data/data.json', 'utf8');
 
     const { transactions } = JSON.parse(contents);
     const result = transactions.find((item) => item.account === id);
 
-    return result; //transactions[id];
+    return result;
   }
 
   async findAll() {
