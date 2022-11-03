@@ -150,7 +150,7 @@ For state managment I used [Recoil](#). Apart from less boilerplate then Redux I
 
 I put TODO comments in the code where I believe there is a bug that needs to be addresses. Here are the PR's that need to be opened in the order of importance.
 
-[PR-1](#) Fix React state update on a component that hasn't mounted yet.
+[PR-1](#) ~~Fix React state update on a component that hasn't mounted yet.~~
 
 [PR-2](#) Combine filters in the filters selectors to combine filtering. Change from Set to Arrey keys.
 
