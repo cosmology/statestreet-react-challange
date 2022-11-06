@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
 import App from './App';
-import { Loading } from './components/Loading';
+import Loading from './components/Loading';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

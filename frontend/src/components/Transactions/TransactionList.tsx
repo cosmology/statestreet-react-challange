@@ -9,24 +9,25 @@ import React, { useEffect } from 'react';
 import { useRecoilState, useRecoilStateLoadable, useRecoilValue } from 'recoil';
 import {
   selectedTransactionAccountState,
-  transactionListState,
-  filteredTransactions,
+  allTransactionsListState,
+  filteredTransactionsSelector,
 } from '../../store/transactions';
 import { TransactionsRowView } from './TransactionRow';
 import TablePagination from '@mui/material/TablePagination';
 import { TransactionItem } from '../../types';
+import Loading from '../Loading';
 
 const ROWS_PER_PAGE = 10;
 
 export default function TransactionList() {
-  const [transactions] = useRecoilStateLoadable(transactionListState);
+  const [transactions] = useRecoilStateLoadable(allTransactionsListState);
   const [, setSelectedTransactionAccount] = useRecoilState(
     selectedTransactionAccountState
   );
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(ROWS_PER_PAGE);
 
-  const filteredTrans = useRecoilValue(filteredTransactions);
+  const filteredTrans = useRecoilValue(filteredTransactionsSelector);
 
   useEffect(() => {
     return () => {
@@ -56,7 +57,7 @@ export default function TransactionList() {
   }
 
   if (transactions.state === 'loading') {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (transactions.state === 'hasValue') {
