@@ -2,12 +2,7 @@ import { atom, selector } from 'recoil';
 import { getTransactions } from '../../services';
 import { TransactionItem } from '../../types';
 
-export const selectedTransactionAccountState = atom<string>({
-  key: 'selectedTransactionAccountState',
-  default: '',
-});
-
-export const allTransactionsState = selector<TransactionItem[]>({
+export const getAllTransactionsSelector = selector<TransactionItem[]>({
   key: 'transactionListState',
   get: async ({ get }) => {
     try {
@@ -15,16 +10,26 @@ export const allTransactionsState = selector<TransactionItem[]>({
       return response.transactions || [];
     } catch (error) {
       console.error(
-        `allTransactionsState selector getTransactions() ERROR: \n${error}`
+        `getAllTransactionsSelector selector getTransactions() ERROR: \n${error}`
       );
       return [];
     }
   },
 });
 
-export const transactionListState = atom<TransactionItem[]>({
-  key: 'allTransactionsState',
-  default: allTransactionsState,
+export const selectedTransactionAccountState = atom<string>({
+  key: 'selectedTransactionAccountState',
+  default: '',
+});
+
+export const defaultTransactionsListState = atom<TransactionItem[]>({
+  key: 'defaultTransactionsListState',
+  default: [],
+});
+
+export const allTransactionsListState = atom<TransactionItem[]>({
+  key: 'getAllTransactionsSelector',
+  default: getAllTransactionsSelector,
 });
 
 // TODO: change this structure to { transTypes: [], transNames: [] },
@@ -34,11 +39,11 @@ const transactionsFilter = atom<any>({
 });
 
 // TODO: fix to filter by both keys
-const filteredTransactions = selector({
+const filteredTransactionsSelector = selector({
   key: 'filteredTrans',
   get: ({ get }) => {
     const filters = get(transactionsFilter);
-    const list = get(transactionListState);
+    const list = get(allTransactionsListState);
 
     if (filters.size) {
       let trans = list.filter((t) => {
@@ -50,4 +55,4 @@ const filteredTransactions = selector({
   },
 });
 
-export { transactionsFilter, filteredTransactions };
+export { transactionsFilter, filteredTransactionsSelector };

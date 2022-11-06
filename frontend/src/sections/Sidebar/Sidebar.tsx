@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import usePrevious from '../../hooks/usePrevious';
 
 // TODO: remove this hack with theme
 const DRAWER_WIDTH = 270;
@@ -42,15 +43,18 @@ function TransactionFilters(props: TransactionFilterChange) {
 }
 
 function Sidebar() {
-  const [state, setStateFilters] = useState({
-    filters: new Set<string>(),
-  });
+  const [filters, setFilters] = useState(new Set<string>());
+
+  // Custom hook previous filters (was passed into hook on last filters render)
+  const previousFilters: Set<string> = usePrevious<Set<string>>(filters);
+
   const [, setStoreFilters] = useRecoilState(transactionsFilter);
 
   const handleFilterChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      setStateFilters((previousState: { filters: Set<string> }) => {
-        let filters = new Set(previousState.filters);
+      setFilters((prevFilters) => {
+        // using to show custom usePrevious hook but can use prevFilters instead
+        let filters = new Set(previousFilters);
 
         if (event.target.checked) {
           filters.add(event.target.value);
@@ -58,17 +62,15 @@ function Sidebar() {
           filters.delete(event.target.value);
         }
 
-        return {
-          filters,
-        };
+        return filters;
       });
     },
-    [setStateFilters]
+    [previousFilters] // we don't need this dependency
   );
 
   useEffect(() => {
-    setStoreFilters(state.filters);
-  }, [setStoreFilters, state.filters]);
+    setStoreFilters(filters);
+  }, [setStoreFilters, filters]);
 
   return (
     <Box sx={{ width: DRAWER_WIDTH, p: 2 }}>

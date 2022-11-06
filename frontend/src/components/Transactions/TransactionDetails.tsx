@@ -10,6 +10,7 @@ import { TransactionItem } from '../../types';
 import { api } from '../../config';
 import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
+import Loading from '../Loading';
 
 const BASE_URL = `${api.baseUrl}:${api.serverPort}`;
 
@@ -43,7 +44,7 @@ const Transaction = React.memo(() => {
   return (
     <>
       {isLoading ? (
-        <h1>Loading...</h1>
+        <Loading />
       ) : transaction ? (
         <>
           <Toolbar sx={{ pt: '3rem' }}>
