@@ -89,6 +89,14 @@ If you have the package manager installed, you can install pnpm using the follow
 brew install pnpm
 ```
 
+Install dependencies from the root:
+
+```bash
+pnpm i
+```
+
+## Add environment variables
+
 Add .env in /frontend
 
 ```
@@ -103,10 +111,16 @@ REACT_APP_SERVER_PORT=5000
 REACT_APP_HOST=http://localhost
 ```
 
-Install dependencies:
+Add .env in /backend
 
-```bash
-pnpm i
+```
+cd backend
+```
+
+paste
+
+```
+PORT=5001
 ```
 
 ## Scripts to run project
@@ -156,7 +170,7 @@ I put TODO comments in the code where I believe there is a bug that needs to be 
 
 [PR-3](#) Remove inline CSS into a theme
 
-[PR-4](#) Add dark theme like I used [here](https://github.com/cosmology/mui-v5-theme-switcher)
+[PR-4](#) ~~Add dark theme like I used [here](https://github.com/cosmology/mui-v5-theme-switcher)~~
 
 [PR-5](#) Add a create route to backend.
 
