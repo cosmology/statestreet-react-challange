@@ -17,6 +17,11 @@ const sharedTheme = {
         disableRipple: true,
       },
     },
+    MuiLink: {
+      defaultProps: {
+        underline: 'hover',
+      },
+    },
   },
 } as ThemeOptions;
 
