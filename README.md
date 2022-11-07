@@ -2,7 +2,7 @@
  <img src="./frontend/public/cover.png" title="Base App">
 </a>
 
-# PNPM Monorepo, NestJS, TypeScript, Recoil, React Router 6, MUI v5 - My Transactions
+# My Transactions - Rect, TypeScript, NestJS, Recoil, React Router 6, MUI v5, pnpm monrepo
 
 ## Features
 
@@ -11,7 +11,7 @@
 - ✅ [React](#react)
   - `v18` 🔥
 - ✅ [TypeScript](#typescript)
-- ✅ [NestJS](#nestjs)
+- ✅ [NestJS](#nest)
 - ✅ [Store](#store)
   - `Recoil`
 - ✅ [Router](#router)
@@ -40,6 +40,10 @@ The latest version (v18) is used here. All dependencies support [React](https://
 
 Written in [TypeScript](https://www.typescriptlang.org/)
 
+#### Nest
+
+[NestJS](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
 #### Router
 
 [React Router v6](https://reactrouter.com/) is used here.
@@ -59,16 +63,20 @@ root
 ├── package.json
 ├── backend
 │      └── requests.http
+│      └── .env
 ├── data
 ├── frontend
-│    └── src
-│         └── components
-│         └── layuts
-│         └── routes
-│         └── sections
-│         └── services
-│         └── store
-│         └── types
+│      └── .env
+│      └── src
+│           └── components
+│           └── hooks
+│           └── layouts
+│           └── routes
+│           └── sections
+│           └── services
+│           └── store
+│           └── theme
+│           └── types
 ```
 
 # Usage
