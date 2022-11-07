@@ -1,15 +1,15 @@
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { TransactionItem } from '../../types';
 import { api } from '../../config';
 import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link';
 import Loading from '../Loading';
 
 const BASE_URL = `${api.baseUrl}:${api.serverPort}`;
@@ -37,7 +37,7 @@ const Transaction = React.memo(() => {
     };
     getTransaction();
     return () => {
-      console.log('cleanup');
+      //console.log('cleanup');
     };
   }, [id]);
 
@@ -100,13 +100,7 @@ const Transaction = React.memo(() => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">
-                <Link
-                  to={`/transactions`}
-                  style={{ textDecoration: 'none', color: 'indigo' }}>
-                  Back to transactions
-                </Link>
-              </Button>
+              <Link href={`/transactions`}>Back to transactions</Link>
             </CardActions>
           </Card>
         </>

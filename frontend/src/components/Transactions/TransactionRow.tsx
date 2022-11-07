@@ -2,9 +2,8 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React, { FC } from 'react';
 import { styled } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import { TransactionItem } from '../../types';
-
 interface TransactionListProps {
   transaction: TransactionItem;
   handleTransactionClick: (
@@ -28,9 +27,7 @@ export const TransactionsRowView: FC<TransactionListProps> = (props) => {
     <>
       <StyledTableRow hover key={transaction.account}>
         <TableCell component="th" scope="row">
-          <Link
-            to={`/transactions/${transaction.account}`}
-            style={{ textDecoration: 'none', color: 'indigo' }}>
+          <Link href={`/transactions/${transaction.account}`}>
             {transaction.account}
           </Link>
         </TableCell>

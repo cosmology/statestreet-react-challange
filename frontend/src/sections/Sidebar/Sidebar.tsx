@@ -9,6 +9,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import usePrevious from '../../hooks/usePrevious';
+import { styled } from '@mui/material/styles';
 
 // TODO: remove this hack with theme
 const DRAWER_WIDTH = 270;
@@ -42,6 +43,21 @@ function TransactionFilters(props: TransactionFilterChange) {
   );
 }
 
+const StyledFilterBox = styled(Box)(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? theme.palette.augmentColor.toString()
+      : '#F5F5F5',
+  ...theme.typography.body1,
+  padding: theme.spacing(2),
+  marginTop: theme.spacing(2),
+  color: theme.palette.text.primary,
+  border: 'solid 1px',
+  borderColor:
+    theme.palette.mode === 'dark' ? theme.palette.divider : '#E0E0E0',
+  borderRadius: 10,
+}));
+
 function Sidebar() {
   const [filters, setFilters] = useState(new Set<string>());
 
@@ -53,7 +69,7 @@ function Sidebar() {
   const handleFilterChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       setFilters((prevFilters) => {
-        // using to show custom usePrevious hook but can use prevFilters instead
+        // using custom usePrevious hook but can use prevFilters instead
         let filters = new Set(previousFilters);
 
         if (event.target.checked) {
@@ -77,15 +93,7 @@ function Sidebar() {
       <Typography variant="body2" sx={{ fontWeight: 500 }}>
         FILTERS
       </Typography>
-      <Box
-        sx={{
-          backgroundColor: '#F5F5F5',
-          border: 1,
-          borderRadius: 1,
-          borderColor: '#E0E0E0',
-          p: 2,
-          mt: 2,
-        }}>
+      <StyledFilterBox>
         <Typography variant="body1" sx={{ fontWeight: 500, mb: 1 }}>
           Account name
         </Typography>
@@ -93,16 +101,8 @@ function Sidebar() {
           types={TRANSACTION_ACCOUNTS}
           onFilterChange={handleFilterChange}
         />
-      </Box>
-      <Box
-        sx={{
-          backgroundColor: '#F5F5F5',
-          border: 1,
-          borderRadius: 1,
-          borderColor: '#E0E0E0',
-          p: 2,
-          mt: 2,
-        }}>
+      </StyledFilterBox>
+      <StyledFilterBox>
         <Typography variant="body1" sx={{ fontWeight: 500, mb: 1 }}>
           Transaction Type
         </Typography>
@@ -110,7 +110,7 @@ function Sidebar() {
           types={TRANSACTION_TYPES}
           onFilterChange={handleFilterChange}
         />
-      </Box>
+      </StyledFilterBox>
     </Box>
   );
 }

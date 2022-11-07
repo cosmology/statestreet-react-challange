@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
 import App from './App';
 import Loading from './components/Loading';
+import ThemeProvider from './theme/Provider';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -12,7 +13,9 @@ root.render(
   <React.StrictMode>
     <RecoilRoot>
       <Suspense fallback={<Loading />}>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </Suspense>
     </RecoilRoot>
   </React.StrictMode>
